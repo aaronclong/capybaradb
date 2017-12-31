@@ -5,29 +5,29 @@ import "strings"
 type Clause byte
 
 const (
-	SELECT Clause = iota
-	UPDATE
-	INSERT
-	FROM
-	WHERE
-	GROUP_BY
-	EQUALS
-	NOT_A_CLAUSE
+	Select Clause = iota
+	Update
+	Insert
+	From
+	Where
+	GroupBy
+	Equals
+	NotAClause
 )
 
 func EvaluateWord(word string) Clause {
 	switch strings.ToUpper(word) {
 	case "SELECT":
-		return SELECT
+		return Select
 	case "FROM":
-		return FROM
+		return From
 	case "WHERE":
-		return WHERE
+		return Where
 	case "GROUP BY":
-		return GROUP_BY
+		return GroupBy
 	case "=":
-		return EQUALS
+		return Equals
 	default:
-		return NOT_A_CLAUSE
+		return NotAClause
 	}
 }
