@@ -14,10 +14,11 @@ const (
 	GroupBy
 	Equals
 	NotAClause
+	EndQuery
 )
 
-// EvaluateWord converts SQL clause to in memory value
-func EvaluateWord(word string) Clause {
+// evaluateWord converts SQL clause to in memory value
+func evaluateWord(word string) Clause {
 	switch strings.ToUpper(word) {
 	case "SELECT":
 		return Select
@@ -29,6 +30,8 @@ func EvaluateWord(word string) Clause {
 		return GroupBy
 	case "=":
 		return Equals
+	case ";":
+		return EndQuery
 	default:
 		return NotAClause
 	}
