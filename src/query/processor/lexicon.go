@@ -2,6 +2,7 @@ package processor
 
 import "strings"
 
+// Clause SQL Statement Markers
 type Clause byte
 
 const (
@@ -15,6 +16,7 @@ const (
 	NotAClause
 )
 
+// EvaluateWord converts SQL clause to in memory value
 func EvaluateWord(word string) Clause {
 	switch strings.ToUpper(word) {
 	case "SELECT":

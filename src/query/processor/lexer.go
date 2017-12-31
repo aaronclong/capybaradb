@@ -6,7 +6,7 @@ import (
 	"github.com/emirpasic/gods/lists/arraylist"
 )
 
-func lexer(query string) map[Clause]*arraylist.List {
+func Lexer(query string) map[Clause]*arraylist.List {
 	var hashMap = make(map[Clause]*arraylist.List)
 	var subSlices = strings.Split(query, " ")
 	var currentClause = NotAClause
