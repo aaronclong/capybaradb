@@ -1,4 +1,4 @@
-package query_processor
+package processor
 
 import "strings"
 
