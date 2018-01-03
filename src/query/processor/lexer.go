@@ -6,6 +6,12 @@ import (
 	"github.com/emirpasic/gods/lists/arraylist"
 )
 
+func checkForOperation(statment string) {
+	var operations []Operation
+	for index, rune := range statment {
+	}
+}
+
 func addElement(current Clause, value string, hashMap map[Clause]*arraylist.List) {
 	var cleanValue = strings.Replace(value, ";", "", -1)
 	if clause, ok := hashMap[current]; ok {
@@ -21,7 +27,7 @@ func Lexer(query string) map[Clause]*arraylist.List {
 	var subSlices = strings.Split(query, " ")
 	var currentClause = NotAClause
 	for _, element := range subSlices {
-		var result = evaluateWord(element)
+		var result = evaluateForClause(element)
 		if result == EndQuery {
 			break
 		}

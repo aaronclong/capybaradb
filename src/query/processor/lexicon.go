@@ -17,8 +17,20 @@ const (
 	EndQuery
 )
 
-// evaluateWord converts SQL clause to in memory value
-func evaluateWord(word string) Clause {
+// Operation refers to math matical operation
+type Operation byte
+
+const (
+	Equals Operation = iota
+	Multiply
+	Divide
+	Addition
+	Subtract
+	WildCard
+	Noperation
+)
+
+func evaluateForClause(word string) Clause {
 	switch strings.ToUpper(word) {
 	case "SELECT":
 		return Select
@@ -34,5 +46,22 @@ func evaluateWord(word string) Clause {
 		return EndQuery
 	default:
 		return NotAClause
+	}
+}
+
+func evaluateForOperation(statement string) Operation {
+	switch statement {
+	case "*":
+		return WildCard
+	case "=":
+		return Equals
+	case "\\":
+		return Divide
+	case "+"
+		return Addition
+	case "-"
+		return Subtract
+	default:
+		return Noperation
 	}
 }
